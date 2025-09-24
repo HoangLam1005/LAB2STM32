@@ -147,7 +147,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer1(100);
   setTimer2(50);
-  setTimer3(50);
+  setTimer3(100);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -313,7 +313,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	}
 
 	if (timer3_flag == 1) {
-		setTimer3(50);
+		setTimer3(100);
 		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	}
 }

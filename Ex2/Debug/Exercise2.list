@@ -313,8 +313,8 @@ int main(void)
   setTimer2(50);
  80002d8:	2032      	movs	r0, #50	; 0x32
  80002da:	f000 f965 	bl	80005a8 <setTimer2>
-  setTimer3(50);
- 80002de:	2032      	movs	r0, #50	; 0x32
+  setTimer3(100);
+ 80002de:	2064      	movs	r0, #100	; 0x64
  80002e0:	f000 f976 	bl	80005d0 <setTimer3>
   while (1)
  80002e4:	e7fe      	b.n	80002e4 <main+0x2c>
@@ -736,8 +736,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
  8000544:	681b      	ldr	r3, [r3, #0]
  8000546:	2b01      	cmp	r3, #1
  8000548:	d106      	bne.n	8000558 <HAL_TIM_PeriodElapsedCallback+0xb4>
-		setTimer3(50);
- 800054a:	2032      	movs	r0, #50	; 0x32
+		setTimer3(100);
+ 800054a:	2064      	movs	r0, #100	; 0x64
  800054c:	f000 f840 	bl	80005d0 <setTimer3>
 		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
  8000550:	2110      	movs	r1, #16
