@@ -140,6 +140,7 @@ int main(void)
   setTimer2(50);
   while (1)
   {
+	  /*
 	  if (timer1_flag == 1) {
 		  setTimer1(100);
 		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
@@ -159,6 +160,7 @@ int main(void)
 			  segmentState = 0;
 		  }
 	  }
+	  */
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -287,6 +289,26 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	timerRun();
+
+	if (timer1_flag == 1) {
+		setTimer1(100);
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	}
+
+	if (timer2_flag == 1) {
+		setTimer2(50);
+
+		if (segmentState == 0) {
+			display7SEG(1);
+			enable7SEG(0);
+			segmentState = 1;
+		}
+		else if (segmentState == 1) {
+			display7SEG(2);
+			enable7SEG(1);
+			segmentState = 0;
+		}
+	}
 }
 /* USER CODE END 4 */
 
