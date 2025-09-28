@@ -307,47 +307,46 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (htim->Instance == TIM2) {
-		timerRun();
+	timerRun();
 
-		if (timer1_flag == 1) {
-			setTimer1(100);
-			HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		}
-
-		if (timer2_flag == 1) {
-			setTimer2(50);
-			update7SEG(index_led);
-			index_led++;
-			if (index_led >= MAX_LED) index_led = 0;
-		}
-
-		if (timer3_flag == 1) {
-			setTimer3(100);
-			HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-		}
-
-		if (timer4_flag == 1) {
-			setTimer4(100);
-
-			second++;
-			if (second >= 60) {
-				second = 0;
-				minute++;
-			}
-
-			if (minute >= 60) {
-				minute = 0;
-				hour++;
-			}
-
-			if (hour >= 24) {
-				hour = 0;
-			}
-
-			updateBlockBuffer();
-		}
+	if (timer1_flag == 1) {
+		setTimer1(100);
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 	}
+
+	if (timer2_flag == 1) {
+		setTimer2(50);
+		update7SEG(index_led);
+		index_led++;
+		if (index_led >= MAX_LED) index_led = 0;
+	}
+
+	if (timer3_flag == 1) {
+		setTimer3(100);
+		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	}
+
+	if (timer4_flag == 1) {
+		setTimer4(100);
+
+		second++;
+		if (second >= 60) {
+			second = 0;
+			minute++;
+		}
+
+		if (minute >= 60) {
+			minute = 0;
+			hour++;
+		}
+
+		if (hour >= 24) {
+			hour = 0;
+		}
+
+		updateBlockBuffer();
+	}
+
 }
 /* USER CODE END 4 */
 
